@@ -1,0 +1,42 @@
+.fullHeight{
+  height: 100%
+}
+.header{
+  width: 100%;
+  background: linear-gradient(to right, dodgerblue , gray);
+  height: 50px;
+}
+.header nav{
+  display: inline-block;
+}
+.header nav span{
+  line-height: 50px;
+  color: white;
+  margin-left: 20px;
+}
+.headerActivity{
+  display: inline-block;
+  height: 43px;
+  color: greenyellow !important;
+  border-bottom: solid;
+}
+.header nav span:hover{
+  color: greenyellow;
+  cursor:pointer
+}
+.logo{
+  font: 30px 'Italiana', sans-serif;
+  line-height: 50px;
+  color: white;
+  margin-left: 20px;
+  cursor: default;
+  text-transform: lowercase;
+}
+.logout{
+  position: absolute;
+  right: 30px;
+  height: 50px;
+  line-height: 50px;
+  color: white;
+  top: 0;
+}
