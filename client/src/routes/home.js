@@ -7,19 +7,11 @@ import Header from '../components/header';
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      currentItem: 'home',
-
-    };
-  }
-  setActivityItem(item) {
-    this.setState({ currentItem: item });
   }
   render() {
-    const headerProps = { currentItem: this.props.app.currentItem };
     return (
       <div className={styles.fullHeight}>
-        <Header {...headerProps} />
+
       </div>
     );
   }
@@ -28,4 +20,7 @@ class Home extends React.Component {
 Home.propTypes = {
 };
 
-export default connect()(Home);
+function mapStateToProps({ app }) {
+  return { app };
+}
+export default connect(mapStateToProps)(Home);
