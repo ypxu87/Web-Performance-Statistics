@@ -1,15 +1,15 @@
 .fullHeight{
   height: 100%
 }
-.header{
+.headerView{
   width: 100%;
   background: linear-gradient(to right, dodgerblue , gray);
   height: 50px;
 }
-.header nav{
+.headerView nav{
   display: inline-block;
 }
-.header nav span{
+.headerView nav span{
   line-height: 50px;
   color: white;
   margin-left: 20px;
@@ -20,7 +20,7 @@
   color: greenyellow !important;
   border-bottom: solid;
 }
-.header nav span:hover{
+.headerView nav span:hover{
   color: greenyellow;
   cursor:pointer
 }
