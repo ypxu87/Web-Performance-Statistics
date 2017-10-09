@@ -1,9 +1,11 @@
 
 export default {
 
-  namespace: 'example',
+  namespace: 'app',
 
-  state: {},
+  state: {
+    currentItem: 'home',
+  },
 
   subscriptions: {
     setup({ dispatch, history }) {  // eslint-disable-line
@@ -17,8 +19,8 @@ export default {
   },
 
   reducers: {
-    save(state, action) {
-      return { ...state, ...action.payload };
+    changePage(state, action) {
+      return { ...state, currentItem: action.payload };
     },
   },
 
