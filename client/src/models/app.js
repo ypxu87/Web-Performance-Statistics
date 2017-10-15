@@ -4,7 +4,7 @@ export default {
   namespace: 'app',
 
   state: {
-    currentItem: 'home',
+    currentItem: 'welcome',
   },
 
   subscriptions: {

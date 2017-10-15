@@ -65,9 +65,9 @@
 ```
 {
     userId:用户ID
-    name:用户名
+    username:用户名
     email:注册email
-    passwd:密码
+    password:密码
     products:产品id数据
     noticeList:通知列表
 }

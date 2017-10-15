@@ -18,7 +18,7 @@ function RouterConfig({ history, app }) {
       getIndexRoute(nextState, cb) {
         require.ensure([], require => {
           registerModel(app, require('./models/app'));
-          cb(null, { component: require('./routes/home') });
+          cb(null, { component: require('./routes/welcome') });
         });
       },
       childRoutes: [

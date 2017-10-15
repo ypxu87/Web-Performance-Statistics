@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>webux</title>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Italiana&amp;subset=latin">
+        <style type="text/css">
+            body,html{
+                margin: 0;
+                padding: 0;
+                height: 100%
+
+            }
+            body{
+                font: 17px/1.5 "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+                background: white;
+                margin: 0;
+                color: #33333d;
+                overflow-y: scroll;
+                overflow-x: hidden;
+            }
+            section {
+                min-height: 50%;
+            }
+            section:not(:last-child) {
+                border-bottom: 1px solid #eee;
+            }
+            section:not(#top) {
+                padding: 150px 100px;
+                text-align: center;
+            }
+            #top{
+                height: 100%
+            }
+            .heading{
+                position: absolute;
+                top:50%;
+                text-align: center;
+                width: 100%;
+                margin-top: -150px
+            }
+            .logo{
+                font: 150px 'Italiana', sans-serif;
+                text-transform: lowercase;
+            }
+            .explain{
+                font-size: 20px
+            }
+            .content{
+                margin: 0 auto;
+                max-width: 750px;
+                text-align: left;
+            }
+             @media screen and (max-width: 700px){
+                section:not(#top) {
+                    padding: 50px 25px;
+                }
+                .heading{
+                    margin-top: -75px
+                }
+                .logo{
+                    font-size: 75px
+                }
+                .explain {
+                    font-size: 16px
+                }
+            } 
+        </style>
+    </head>
+    <body>
+        <section id="top">
+            <div>
+
+            </div>
+            <div class="heading">
+                <div class="logo">webux</div>
+                <div class="explain">一个统计web性能参数的工具,旨在帮助技术人员优化用户体验</div>
+            </div>
+        </section>
+        <section>
+            <div class="content">
+                
+            </div>
+        </section>
+    </body>
+</html>
