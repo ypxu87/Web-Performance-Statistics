@@ -1,5 +1,6 @@
 const Koa = require('koa')
 const app = new Koa()
+const router = require('koa-router')();
 const views = require('koa-views')
 const json = require('koa-json')
 const onerror = require('koa-onerror')
@@ -32,9 +33,16 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
+//绑定mongodb
+app.use(async (ctx, next) => {
+    if(!ctx.model)
+        ctx.model = require('./models');
+    await next();
+})
+
 // routes
 app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
+app.use(users.routes(), users.allowedMethods());
 
 // error-handling
 app.on('error', (err, ctx) => {

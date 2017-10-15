@@ -22,7 +22,9 @@
     "koa-views": "^5.2.1",
     "mongoose": "^4.12.2",
     "mongoose-q": "^0.1.0",
-    "pug": "^2.0.0-rc.1"
+    "promise": "^8.0.1",
+    "pug": "^2.0.0-rc.1",
+    "validator": "^9.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.8.1"
