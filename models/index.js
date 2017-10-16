@@ -1,5 +1,6 @@
 const mongoose =  require('mongoose-q')(require('mongoose'));
 const UserSchema = require('./user');
+const ProductSchema = require('./product')
 const config = require('../config');
 
 // 数据库
@@ -19,7 +20,7 @@ mongoose.connect(mongodb, {
 });
 
 mongoose.model('user', UserSchema);
-
+mongoose.model('product', ProductSchema);
 module.exports = function (name) {
     name = name.toLowerCase();
     return mongoose.model(name);
