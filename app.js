@@ -6,13 +6,17 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
+const convert = require('koa-convert')
+const session = require('koa-generic-session')
+const config = require('./config');
+const redisStore = require('koa-redis');
 
 const index = require('./routes/index')
 const users = require('./routes/users')
 
 // error handler
 onerror(app)
-
+app.keys = ['webux'];
 // middlewares
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']
@@ -20,7 +24,9 @@ app.use(bodyparser({
 app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
-
+app.use(convert(session({
+    store: redisStore(config.redis)
+})));
 app.use(views(__dirname + '/views', {
   extension: 'pug'
 }))
@@ -32,7 +38,12 @@ app.use(async (ctx, next) => {
   const ms = new Date() - start
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
-
+app.use(async function (ctx,next) {
+    if(ctx.session.user) {
+        ctx.state.current_user = ctx.session.user;
+    }
+    await next()
+})
 //绑定mongodb
 app.use(async (ctx, next) => {
     if(!ctx.model)
