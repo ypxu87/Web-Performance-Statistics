@@ -1,4 +1,5 @@
 const router = require('koa-router')();
+const querystring = require('querystring');
 const validator = require('validator');
 const sign = require('../middlewares/sign');
 const tools = require('../common/tools');
@@ -7,9 +8,13 @@ const tools = require('../common/tools');
  *获取产品信息列表
  */
 router.get('/products/list',sign.isLogin,async function (ctx,next) {
-    let body = tools.trimObjectValue(ctx.request.body);
+    if (!ctx.req._parsedUrl.query) {
+        ctx.body = "参数错误";
+        return;
+    }
+    var params = querystring.parse(ctx.req._parsedUrl.query);
     let Products = ctx.model("product")
-    let list = Products.getProducts(body.auth_id)
+    let list = await Products.getProducts(params.auth_id)
     if(list){
         return ctx.body={
             success:"success",
